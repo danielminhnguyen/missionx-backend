@@ -1,0 +1,255 @@
+import Slide1 from "./img/home-sectionone-slideone.png";
+import Slide2 from "./img/home-sectionone-slidetwo.png";
+import Slide3 from "./img/home-sectionone-slidethre.png";
+import Slide4 from "./img/home-sectionone-slideone.png";
+
+import TeacherNav1 from "./img/teacher-nav-progress.png";
+import TeacherNav2 from "./img/teacher-nav-studentprofile.png";
+import TeacherNav3 from "./img/teacher-nav-help.png";
+import TeacherNav4 from "./img/teacher-nav-submission.png";
+import TeacherNav5 from "./img/teacher-nav-library.png";
+
+export const slideshow = [
+  {
+    id: 1,
+    imagePath: "./home-sectionone-slideone.png",
+  },
+  {
+    id: 2,
+    imagePath: "./home-sectionone-slidetwo.png",
+  },
+  {
+    id: 3,
+    imagePath: "./home-sectionone-slidethree.png",
+  },
+  {
+    id: 4,
+    imagePath: "./home-sectionone-slidefour.png",
+  },
+];
+
+export const digitalSkills = [
+  {
+    id: 1,
+    background: "./home-sectiontwo-icon-one-bg.png",
+    overlay: "./home-sectiontwo-icon-one-overlay.png",
+    title: "Creativity & Individuality",
+  },
+  {
+    id: 2,
+    background: "./home-sectiontwo-icon-two-bg.png",
+    overlay: "./home-sectiontwo-icon-two-overlay.png",
+    title: "Critical Thinking & Problem Solving",
+  },
+  {
+    id: 3,
+    background: "./home-sectiontwo-icon-three-bg.png",
+    overlay: "./home-sectiontwo-icon-two-overlay.png",
+    title: "Communication & Collaboration",
+  },
+  {
+    id: 4,
+    background: "./home-sectiontwo-icon-four-bg.png",
+    overlay: "./home-sectiontwo-icon-two-overlay.png",
+    title: "Technology & Future Focus",
+  },
+];
+
+export const studentCreation = [
+  {
+    id: 1,
+    background: "",
+    overlay: "./home-sectionone-icon-one.png",
+    title: "Animation",
+  },
+  {
+    id: 2,
+    background: "",
+    overlay: "./home-sectionone-icon-two.png",
+    title: "Games",
+  },
+  {
+    id: 3,
+    background: "",
+    overlay: "./home-sectionone-icon-three.png",
+    title: "Chatbots",
+  },
+  {
+    id: 4,
+    background: "",
+    overlay: "./home-sectionone-icon-four.png",
+    title: "Augmented Reality",
+  },
+];
+
+// Navigation Data
+
+export const NavTeacherDashboard = [
+  {
+    id: 1,
+    imgURL: TeacherNav1,
+    // imgURL: "./teacher-nav-progress.png",
+    title: "progress tracker",
+    linkto: "",
+  },
+  {
+    id: 2,
+    imgURL: TeacherNav2,
+    // imgURL: "./teacher-nav-studentprofile.png",
+    title: "student profile",
+    linkto: "/teachers/studentprofile",
+  },
+  {
+    id: 3,
+    imgURL: TeacherNav3,
+    // imgURL: "./teacher-nav-help.png",
+    title: "help requests",
+    linkto: "/teachers/requests",
+  },
+  {
+    id: 4,
+    imgURL: TeacherNav4,
+    // imgURL: "./teacher-nav-submission.png",
+    title: "project submissions",
+    linkto: "/teachers/submission",
+  },
+  {
+    id: 5,
+    imgURL: TeacherNav5,
+    // imgURL: "./teacher-nav-library.png",
+    title: "project library",
+    linkto: "/teachers/projects",
+  },
+];
+
+export const NavTeacherSetting = [
+  {
+    id: 1,
+    imgURL: "./userIcon.png",
+    title: "Profile",
+    linkto: "/teachers/profile",
+  },
+  {
+    id: 2,
+    imgURL: "./settingIcon.png",
+    title: "Settings",
+    linkto: "/teachers/settings",
+  },
+  {
+    id: 3,
+    imgURL: "./logoutIcon.png",
+    title: "Logout",
+    linkto: "",
+  },
+];
+
+export const NavStudentSetting = [
+  {
+    id: 1,
+    imgURL: "./userIcon.png",
+    title: "Profile",
+    linkto: "/students/profile",
+  },
+  {
+    id: 2,
+    imgURL: "./settingIcon.png",
+    title: "Settings",
+    linkto: "/students/settings",
+  },
+  {
+    id: 3,
+    imgURL: "./logoutIcon.png",
+    title: "Logout",
+    linkto: "",
+  },
+];
+
+export const ProjectBuilderStudent = [
+  {
+    id: 1,
+    imgURL: "./student-project-1.png",
+    title: "learning objective",
+    linkto: "/students/objective",
+  },
+  {
+    id: 2,
+    imgURL: "./student-project-2.png",
+    title: "instruction",
+    linkto: "/students/instruction",
+  },
+  {
+    id: 3,
+    imgURL: "./student-project-3.png",
+    title: "video tutorial",
+    linkto: "/students/tutorial",
+  },
+  {
+    id: 4,
+    imgURL: "./student-project-4.png",
+    title: "make project",
+    linkto: "/students/makeproject",
+  },
+  {
+    id: 5,
+    imgURL: "./student-project-5.png",
+    title: "submit project",
+    linkto: "/students/submitproject",
+  },
+  {
+    id: 6,
+    imgURL: "./student-project-6.png",
+    title: "bonus challenge",
+    linkto: "/students/challenge",
+  },
+  {
+    id: 7,
+    imgURL: "./student-project-7.png",
+    title: "take the quiz",
+    linkto: "/students/quiz",
+  },
+];
+
+export const ProjectBuilderTeacher = [
+  {
+    id: 1,
+    imgURL: "./student-project-1.png",
+    title: "learning objective",
+    linkto: "/teachers/project/objective",
+  },
+  {
+    id: 2,
+    imgURL: "./student-project-2.png",
+    title: "instruction",
+    linkto: "/teachers/project/instruction",
+  },
+  {
+    id: 3,
+    imgURL: "./student-project-3.png",
+    title: "video tutorial",
+    linkto: "/teachers/project/tutorial",
+  },
+  {
+    id: 4,
+    imgURL: "./student-project-4.png",
+    title: "preview project",
+    linkto: "/teachers/project/preview",
+  },
+  {
+    id: 5,
+    imgURL: "./student-project-5.png",
+    title: "check submission",
+    linkto: "/teachers/project/checksubmit",
+  },
+  {
+    id: 6,
+    imgURL: "./student-project-6.png",
+    title: "offline activities",
+    linkto: "/teachers/project/activities",
+  },
+  {
+    id: 7,
+    imgURL: "./student-project-7.png",
+    title: "take the quiz",
+    linkto: "/teachers/project/quizresults",
+  },
+];
