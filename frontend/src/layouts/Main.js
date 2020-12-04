@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import NavigationBar from "../../components/NavigationBar";
-import Footer from "../../components/Footer/Footer";
-import HomePageContent from "./HomePageContent";
-import ModalLoginSignup from "../../components/ModalLoginSignup/ModalLoginSignup";
+import NavigationBar from "../components/NavigationBar/NavigationBar";
+import Footer from "../components/Footer/Footer";
+import Home from "../screens/HomePage/Home";
+import ModalLoginSignup from "../components/ModalLoginSignup/ModalLoginSignup";
 import { Switch, Route } from "react-router-dom";
 
-export default class HomePage extends Component {
+export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +43,13 @@ export default class HomePage extends Component {
         <NavigationBar modalClick={this.ModalOpen} />
         <Switch>
           <Route path="/">
-            <HomePageContent signUp={this.ModalOpen} />
+            <Home signUp={this.ModalOpen} />
+          </Route>
+          <Route path="/profile">
+            <Home signUp={this.ModalOpen} />
+          </Route>
+          <Route path="/projects">
+            <Home signUp={this.ModalOpen} />
           </Route>
         </Switch>
         <Footer />
