@@ -71,6 +71,15 @@ $button-variant-one: #e5ab2c;
   text-transform: capitalize;
 }
 
+//common
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // color: #6c6c6c;
+  text-align: center;
+}
+
 input {
   border: solid $border-width $accent-secondary-color;
   border-radius: $border-radius;

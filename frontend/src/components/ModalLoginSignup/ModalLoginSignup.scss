@@ -15,16 +15,16 @@
     width: 70%;
   }
 
-  .student-login,
-  .teacher-login {
-    display: grid;
-    grid-template-rows: 2fr 4fr;
-    padding: 1rem;
-    justify-items: center;
-  }
-  * {
-    margin: 0.5rem 0;
-  }
+  // .student-login,
+  // .teacher-login {
+  //   display: grid;
+  //   grid-template-rows: 2fr 4fr;
+  //   padding: 1rem;
+  //   justify-items: center;
+  // }
+  // * {
+  //   margin: 0.5rem 0;
+  // }
   .student-login {
     height: 79vh;
     border-right: solid 0.2rem black;

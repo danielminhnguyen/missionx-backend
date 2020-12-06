@@ -5,15 +5,17 @@ import logo from "../../img/logo-white.png";
 import nzflag from "../../img/nz-flag.png";
 import maoriflag from "../../img/maori-flag.png";
 import profilePhoto from "../../img/rawiri_profile.png";
+import ModalLoginSignup from "components/ModalLoginSignup/ModalLoginSignupMaterial";
 
 export default function NavigationBar(props) {
+  const { modalClick, authenticated, modalOpen, loginSingup, ModalClose } = props;
   const notloggedin = (
     <div className="login-register">
-      <div className="register" onClick={() => props.modalClick("Sign Up")}>
+      <div className="register" onClick={() => modalClick("Sign Up")}>
         Register
       </div>
       <span> | </span>
-      <div className="login" onClick={() => props.modalClick("Login")}>
+      <div className="login" onClick={() => modalClick("Login")}>
         Login
       </div>
     </div>
@@ -52,7 +54,7 @@ export default function NavigationBar(props) {
           <img src={nzflag} alt="" />
           <img src={maoriflag} alt="" />
         </div>
-        {props.authenticated ? loggedin : notloggedin}
+        {authenticated ? loggedin : notloggedin}
       </div>
     </div>
   );

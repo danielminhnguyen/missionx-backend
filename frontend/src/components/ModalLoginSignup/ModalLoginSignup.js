@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./ModalLoginSignup.scss";
 import { Link } from "react-router-dom";
 import Tabs from "../Tabs/Tabs";
-import student from "../../img/modal-student.png";
-import teacher from "../../img/modal-teacher.png";
+import student from "assets/images/modal-student.png";
+import teacher from "assets/images/modal-teacher.png";
+
 // import teacher from "@images/modal-teacher.png";
 
 export default class ModalLoginSignup extends Component {
