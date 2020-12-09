@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { SubmissionData } from "../../dataset";
 import "./SubmissionDisplay.scss";
 import Dialog from "@material-ui/core/Dialog";
@@ -85,6 +86,18 @@ export default class SubmissionDisplay extends Component {
     );
   }
 }
+
+SubmissionDisplayComponent.propTypes = {
+  gender: PropTypes.string,
+  timestamp: PropTypes.string,
+  selectClick: PropTypes.func,
+  id: PropTypes.string,
+  handleClick: PropTypes.func,
+  projectURL: PropTypes.string,
+  profileURL: PropTypes.string,
+  name: PropTypes.string,
+  open: PropTypes.string,
+};
 
 function SubmissionDisplayComponent(props) {
   // Determine his or her

@@ -40,7 +40,16 @@ import Submission2 from "./img/rawiri_profile.png";
 import Submission3 from "./img/neveah-profile.png";
 import StudentProject1 from "./img/aiden-project.png";
 
+import bcrypt from 'bcryptjs';
+
 export const SubmissionData = [
+  users: [
+    {
+      name: 'dan',
+      email: 'test@test.com',
+      password: bcrypt.hashSync('1234',8)
+    }
+  ],
   {
     id: 1,
     name: "Aiden",

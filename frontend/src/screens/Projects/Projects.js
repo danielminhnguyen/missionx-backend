@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Projects.scss";
 import LibaryIcon from "../../components/LibraryIcon/LibaryIcon";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default class Projects extends Component {
   constructor(props) {
@@ -101,8 +102,8 @@ export default class Projects extends Component {
           <div>
             <h1>PROJECTS</h1>
             <p>
-              Welcome to the project library. You can use the filters on the
-              right to help you search for specific projects.
+              Welcome to the project library. You can use the filters on the right to help you
+              search for specific projects.
             </p>
           </div>
           <div className="feed-control">
@@ -127,3 +128,7 @@ export default class Projects extends Component {
     );
   }
 }
+
+Projects.propTypes = {
+  category: PropTypes.string,
+};

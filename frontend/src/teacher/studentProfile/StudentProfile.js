@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./StudentProfile.scss";
 import { StudentProfileData } from "./StudentProfileData";
 
@@ -21,6 +22,11 @@ export default class studentProfile extends Component {
     );
   }
 }
+
+StudentProfileComponent.propTypes = {
+  imgURL: PropTypes.string,
+  name: PropTypes.string,
+};
 
 function StudentProfileComponent(props) {
   return (

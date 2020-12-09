@@ -1,10 +1,11 @@
-import { NavTeacherDashboard } from "./dataset";
+import DashBoard from "layouts/Dashboard";
 import Main from "layouts/Main";
 import StudentProfile from "personalProfile/StudentProfile";
 import TeacherProfile from "personalProfile/TeacherProfile";
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import StudentDashboard from "teacher/TeacherDashboard";
+import { NavTeacherDashboard } from "./dataset";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           {/* <Route path="/projects">
     <Project category="teacher" />
   </Route> */}
+          <Route path="/dashboard" component={DashBoard} />
           <Route path="/teachers/profile" component={TeacherProfile} />
           <Route path="/students/profile" component={StudentProfile} />
           <Route path="/teachers" component={NavTeacherDashboard} />

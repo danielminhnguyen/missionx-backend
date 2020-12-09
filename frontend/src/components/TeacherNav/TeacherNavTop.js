@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import FlagNZ from "../../img/nz-flag.png";
 import FlagMaori from "../..//img/maori-flag.png";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import PropTypes from "prop-types";
+
+TeacherNavTop.propTypes = {
+  layout: PropTypes.string,
+};
 
 export default function TeacherNavTop(props) {
   return (

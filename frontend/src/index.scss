@@ -9,8 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 $primary-color: #43c0f6;
@@ -78,6 +77,18 @@ $button-variant-one: #e5ab2c;
   box-sizing: border-box;
   // color: #6c6c6c;
   text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+a:visited,
+a:active,
+a:link {
+  text-decoration: none;
+  color: inherit;
 }
 
 input {
@@ -153,9 +164,23 @@ input {
   align-items: center;
 }
 
+.row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.column-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }

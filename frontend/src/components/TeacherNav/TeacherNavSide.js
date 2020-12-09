@@ -1,11 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./TeacherNavSide.scss";
-// import iconHelp from "./teacher-nav-help.png";
-// import iconLibary from "./teacher-nav-library.png";
-// import iconProgress from "./teacher-nav-progress.png";
-// import iconProfile from "./teacher-nav-studentprofile.png";
-// import iconSubmission from "./teacher-nav-submission.png";
-
 import { Link } from "react-router-dom";
 
 export default class TeacherNav extends Component {
@@ -68,27 +63,19 @@ export default class TeacherNav extends Component {
           </div>
 
           <div className="logout-setting-wrapper">
-            <div className="logout-holder">
-              {settingList}
-              {/* <div className="item">
-                <img src="/userIcon.png" alt="" />
-                <p>Profile</p>
-              </div>
-              <div className="item">
-                <img src="/settingIcon.png" alt="" />
-                <p>Settings</p>
-              </div>
-              <div className="item">
-                <img src="/logoutIcon.png" alt="" />
-                <p>Logout</p> */}
-              {/* </div> */}
-            </div>
+            <div className="logout-holder">{settingList}</div>
           </div>
         </div>
       </div>
     );
   }
 }
+
+TeacherNav.propTypes = {
+  navData: PropTypes.string,
+  settingData: PropTypes.array,
+  profile: PropTypes.string,
+};
 
 function NavigationListComponent(props) {
   return (
@@ -100,3 +87,9 @@ function NavigationListComponent(props) {
     </>
   );
 }
+
+NavigationListComponent.propTypes = {
+  linkto: PropTypes.string,
+  src: PropTypes.string,
+  title: PropTypes.string,
+};

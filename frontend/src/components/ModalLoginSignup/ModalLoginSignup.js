@@ -36,12 +36,7 @@ export default class ModalLoginSignup extends Component {
                   <input type="fullname" name="" id="" placeholder="fullname" />
                   <input type="email" name="" id="" placeholder="email" />
                   <input type="password" name="" id="" placeholder="password" />
-                  <input
-                    type="confirm"
-                    name=""
-                    id=""
-                    placeholder="confirm password"
-                  />
+                  <input type="confirm" name="" id="" placeholder="confirm password" />
                   <Link to="/students" onClick={() => this.props.close()}>
                     <button className="button-one">Sign Up</button>
                   </Link>
@@ -66,12 +61,7 @@ export default class ModalLoginSignup extends Component {
                   <input type="fullname" name="" id="" placeholder="fullname" />
                   <input type="email" name="" id="" placeholder="email" />
                   <input type="password" name="" id="" placeholder="password" />
-                  <input
-                    type="confirm"
-                    name=""
-                    id=""
-                    placeholder="confirm password"
-                  />
+                  <input type="confirm" name="" id="" placeholder="confirm password" />
                   <Link to="/teachers" onClick={() => this.props.close()}>
                     <button className="button-one">Sign Up</button>
                   </Link>

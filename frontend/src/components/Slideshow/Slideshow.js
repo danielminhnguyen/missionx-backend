@@ -1,42 +1,46 @@
-import React, { Component } from "react";
-// import { slideshow } from "../../dataset";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./Slideshow.scss";
 
-class SlideShow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentslide: 1,
-      // data: slideshow,
-      data: props.data,
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+SlideShow.propTypes = {
+  data: PropTypes.array,
+};
 
-  handleClick(id) {
-    // console.log("set " + id);
-    this.setState({ currentslide: id });
-  }
+function SlideShow(props) {
+  const [slide, setSlide] = useState(1);
+  const { data } = props;
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     slide: 1,
+  //     // data: slideshow,
+  //     data: props.data,
+  //   };
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
 
-  render() {
-    let selectslide = this.state.data.filter((item) => item.id === this.state.currentslide);
-    let slides = selectslide.map((item) => (
-      <Slide src={item.imagePath} key={item.id} id={item.id} />
-    ));
-    // console.log(slides);
+  const handleClick = (id) => {
+    setSlide(id);
+  };
 
-    // let slides = <Slide src={selectslide.imagePath} key={selectslide.id} id={selectslide.id} />;
-    let dots = this.state.data.map((item) => (
-      <SlideController key={item.id} handleClick={this.handleClick} id={item.id} />
-    ));
-    return (
-      <div className="slideshow">
-        {slides}
-        <div className="slide-controller">{dots}</div>
-      </div>
-    );
-  }
+  let selectslide = data.filter((item) => item.id === slide);
+  let slides = selectslide.map((item) => <Slide src={item.imagePath} key={item.id} id={item.id} />);
+
+  let dots = data.map((item) => (
+    <SlideController key={item.id} handleClick={handleClick} id={item.id} />
+  ));
+
+  return (
+    <div className="slideshow">
+      {slides}
+      <div className="slide-controller">{dots}</div>
+    </div>
+  );
 }
+
+Slide.propTypes = {
+  src: PropTypes.string,
+};
 
 function Slide(props) {
   return (
@@ -45,6 +49,11 @@ function Slide(props) {
     </div>
   );
 }
+
+SlideController.propTypes = {
+  handleClick: PropTypes.func,
+  id: PropTypes.string,
+};
 
 function SlideController(props) {
   return <span className="slide-dot" onClick={() => props.handleClick(props.id)}></span>;

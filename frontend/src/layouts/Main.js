@@ -11,35 +11,13 @@ export default function Main() {
   const [modalOpen, setmodalOpen] = useState(false);
   const [loginSingup, setloginSingup] = useState(null);
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     modalShow: false,
-  //     request: null,
-  //   };
-  //   this.ModalOpen = this.ModalOpen.bind(this);
-  //   this.ModalClose = this.ModalClose.bind(this);
-  //   this.handleClickOutside = this.handleClickOutside.bind(this);
-  // }
-
   const openModal = (event) => {
-    document.body.style.overflow = "hidden";
-    document.addEventListener("mousedown", handleClickOutside);
     setmodalOpen(true);
     setloginSingup(event);
   };
 
   const ModalClose = () => {
-    document.body.style.overflow = "visible";
     setmodalOpen(false);
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-
-  const handleClickOutside = (event) => {
-    // console.log(event.target.className);
-    if (event.target.className === "modal-container") {
-      ModalClose();
-    }
   };
 
   return (

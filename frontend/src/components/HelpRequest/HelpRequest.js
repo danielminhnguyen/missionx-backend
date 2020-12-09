@@ -1,92 +1,105 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { SubmissionData } from "../../dataset";
 import "../SubmissionDisplay/SubmissionDisplay.scss";
+import PropTypes from 'prop-types'
 
-export default class HelpRequest extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: SubmissionData,
-      //   active: 0,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.selectClick = this.selectClick.bind(this);
-  }
+export default function HelpRequest() {
+  const [data, setData] = useState(SubmissionData);
+  const [active, setActive] = useState(null);
 
-  handleClick(id) {
-    // console.log("click");
-    if (this.state.active === id) {
-      this.setState({ active: 0 });
+  const handleClick = (id) => {
+    if (active === id) {
+      setActive(0);
     } else {
-      this.setState({ active: id });
+      setActive(id);
     }
-  }
+  };
 
-  selectClick(id, event) {
+  const selectClick = (id, event) => {
     // console.log("click");
     // console.log(event.target.checked);
-    let a = this.state.data.slice();
+    const a = data.slice();
     for (let i = 0; i < a.length; i++) {
-      if (this.state.data[i].id === id) {
+      if (data[i].id === id) {
         a[i].select = event.target.checked;
       }
     }
-    this.setState({ data: a });
-  }
+    setData(a);
+  };
 
-  render() {
-    console.log(this.state.active);
-    let projects = this.state.data.map((item) => (
-      <HelpRequestComponent
-        key={item.id}
-        name={item.name}
-        profileURL={item.profileURL}
-        projectURL={item.projectURL}
-        gender={item.gender}
-        timestamp={item.timestamp}
-        handleClick={this.handleClick}
-        selectClick={this.selectClick}
-        open={this.state.active}
-        id={item.id}
-      />
-    ));
-    return <div className="submissionContainer">{projects}</div>;
-  }
+  // console.log(this.state.active);
+  const projects = data.map((item) => (
+    <HelpRequestComponent
+      key={item.id}
+      name={item.name}
+      profileURL={item.profileURL}
+      projectURL={item.projectURL}
+      gender={item.gender}
+      timestamp={item.timestamp}
+      handleClick={handleClick}
+      selectClick={selectClick}
+      open={active}
+      id={item.id}
+    />
+  ));
+
+  return (
+    <div className="submissionContainer">{projects}</div>
+  );
+}
+
+HelpRequestComponent.propTypes = {
+  gender: PropTypes.string,
+  timestamp: PropTypes.string,
+  profileURL: PropTypes.string,
+  selectClick: PropTypes.func,
+  handleClick: PropTypes.func,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  projectURL: PropTypes.string,
+  open: PropTypes.number
 }
 
 function HelpRequestComponent(props) {
-  // Determine his or her
+  const {
+    gender, timestamp, profileURL, selectClick, handleClick, id, name, projectURL, open,
+  } = props;
   let gen;
-  if (props.gender === "M") {
+  if (gender === "M") {
     gen = " his";
-  } else if (props.gender === "F") {
+  } else if (gender === "F") {
     gen = " her";
   } else {
     gen = "";
   }
 
   // Extract Date and Time
-  let d = new Date(props.timestamp);
-  let time = d.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
-  let stringDate = d.toString();
-  let date = `${stringDate.substring(0, 3)} ${d.getDate()} ${stringDate.substring(
+  const d = new Date(timestamp);
+  const time = d.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+  const stringDate = d.toString();
+  const date = `${stringDate.substring(0, 3)} ${d.getDate()} ${stringDate.substring(
     4,
-    7
+    7,
   )} ${d.getFullYear()}`;
 
   //
   return (
     <div className="submission-item">
-      <input type="checkbox" onClick={(event) => props.selectClick(props.id, event)} />
-      <div className="project-wrapper" onClick={() => props.handleClick(props.id)}>
-        <img src={props.profileURL} alt="" />
+      <input type="checkbox" onClick={(event) => selectClick(id, event)} />
+      <div className="project-wrapper" onClick={() => handleClick(id)}>
+        <img src={profileURL} alt="" />
         <div className="submission-message">
           <span className="status">
-            {props.name} needs help with{gen} project
+            {name}
+            {" "}
+            needs help with
+            {gen}
+            {" "}
+            project
           </span>
-          <span className={`teacher-project-image ${props.open === props.id ? "active" : ""}`}>
-            <img src={props.projectURL} alt="" />
-            <button>Enlarge Photo</button>
+          <span className={`teacher-project-image ${open === id ? "active" : ""}`}>
+            <img src={projectURL} alt="" />
+            <button type="button">Enlarge Photo</button>
           </span>
         </div>
         <div className="submission-timestamp">

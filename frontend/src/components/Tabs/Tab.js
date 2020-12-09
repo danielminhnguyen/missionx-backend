@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Typography } from "@material-ui/core";
 
 class Tab extends Component {
   static propTypes = {
@@ -26,9 +27,9 @@ class Tab extends Component {
     }
 
     return (
-      <li className={className} onClick={onClick}>
+      <Typography variant="h5" className={className} onClick={onClick}>
         {label}
-      </li>
+      </Typography>
     );
   }
 }

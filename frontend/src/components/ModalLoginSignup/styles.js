@@ -2,13 +2,13 @@ const { makeStyles } = require("@material-ui/core");
 
 export default makeStyles((theme) => ({
   image: {
-    minWidth: "10px",
-    margin: theme.spacing(3),
+    objectFit: "cover",
+    width: "100%",
+    // minWidth: "10px",
   },
   dialogContainer: {
-    minHeight: "80vh",
     // minWidth: "70vw",
-    padding: theme.spacing(1),
+    padding: theme.spacing(10),
   },
   inputContainer: {
     "& *": {
@@ -16,6 +16,22 @@ export default makeStyles((theme) => ({
     },
   },
   input: {
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(1),
+  },
+  tabs: {
+    "& tab-list": {
+      display: "flex",
+      justifyContent: "space-evenly",
+      "& tab-list-active:first-child": {
+        borderBottom: "solid 2px #43c0f6",
+      },
+      "& tab-list-item": {
+        display: "inline-block",
+        listStyle: "none",
+      },
+    },
+    "& tab-content": {
+      minHeight: "400px",
+    },
   },
 }));

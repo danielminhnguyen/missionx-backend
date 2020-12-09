@@ -1,31 +1,36 @@
-import React, { Component } from "react";
-// import { studentCreateIcon } from "../../dataset";
+import React from "react";
+import PropTypes from "prop-types";
 import "./OverlayIcon.scss";
 
-export default class OverlayIcon extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: props.data,
-    };
-  }
+OverlayIcon.propTypes = {
+  data: PropTypes.array,
+};
 
-  render() {
-    let icons = this.state.data.map((item) => (
-      <OverlayIconCoponent
-        key={item.id}
-        overlay={item.overlay}
-        bg={item.background}
-        title={item.title}
-      />
-    ));
-    return <div className="icon-wrapper">{icons}</div>;
-  }
+export default function OverlayIcon(props) {
+  const { data } = props;
+
+  let icons = data.map((item) => (
+    <OverlayIconCoponent
+      key={item.id}
+      overlay={item.overlay}
+      bg={item.background}
+      title={item.title}
+    />
+  ));
+
+  return <div className="icon-wrapper">{icons}</div>;
 }
 
+OverlayIconCoponent.propTypes = {
+  title: PropTypes.string,
+  overlay: PropTypes.string,
+  bg: PropTypes.string,
+};
+
 function OverlayIconCoponent(props) {
+  const { title, overlay, bg } = props;
   let style;
-  if (props.bg !== "") {
+  if (bg !== "") {
     style = { backgroundImage: `url(${props.bg})` };
   } else {
     style = { backgroundImage: "" };
@@ -33,8 +38,8 @@ function OverlayIconCoponent(props) {
 
   return (
     <div className="icon" style={style}>
-      <img src={props.overlay} alt="" />
-      <span>{props.title}</span>
+      <img src={overlay} alt="" />
+      <span>{title}</span>
     </div>
   );
 }
