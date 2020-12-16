@@ -9,6 +9,9 @@ import projectRouter from "./routes/projectRouter.js";
 dotenv.config();
 
 // const db = mysql.createPool(local);
+// export sql db
+// https://github.com/drud/ddev/issues/1902
+// sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' 2019-10-26-prod.sql
 
 const app = express();
 app.use(express.json());

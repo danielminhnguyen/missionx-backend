@@ -9,15 +9,27 @@ teacherRouter.post(
   "/studentprofile",
   expressAsyncHandler(async (req, res) => {
     const { teacherID } = req.body;
-    console.log("profile", teacherID);
+    // console.log("profile", teacherID);
     db.query(
-      "SELECT `UserID`, `FirstName`, `LastName`, `ProfilePic` FROM `User` WHERE `Role` = 'student' AND `TeacherID` = ?",
+      "SELECT `UserID`, `FirstName`, `LastName`, `ProfilePic`, `MimeType` FROM `User` WHERE `Role` = 'student' AND `TeacherID` = ?",
       [teacherID],
-      async (err, results) => {
+      async (err, rows, fields) => {
+        const data = [];
         if (err) {
           console.log(err);
         } else {
-          res.send(results);
+          const encoding = "base64";
+          rows.forEach((row) => {
+            // console.log(row);
+            const uri = `data:${row.MimeType};${encoding},${row.ProfilePic}`;
+            data.push({
+              UserID: row.UserID,
+              FirstName: row.FirstName,
+              LastName: row.LastName,
+              ProfilePic: uri,
+            });
+          });
+          res.status(200).send(data);
         }
       }
     );
@@ -36,7 +48,7 @@ teacherRouter.post(
         if (err) {
           console.log(err);
         } else {
-          res.send(results);
+          res.status(200).send(results);
         }
       }
     );
@@ -55,7 +67,7 @@ teacherRouter.post(
         if (err) {
           console.log(err);
         } else {
-          res.send(results);
+          res.status(200).send(results);
         }
       }
     );

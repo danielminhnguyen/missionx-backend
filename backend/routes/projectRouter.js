@@ -36,9 +36,9 @@ projectRouter.get(
 
     const sql = `SELECT * FROM \`Project\` WHERE \`Course\` = ${course} ${subscription} ${activity} ${subject} ${level} LIMIT ${limit}`;
 
-    console.log(
-      `SELECT * FROM \`Project\` WHERE \`Course\` = ${course} ${subscription} ${activity} ${subject} ${level} LIMIT ${limit}`
-    );
+    // console.log(
+    //   `SELECT * FROM \`Project\` WHERE \`Course\` = ${course} ${subscription} ${activity} ${subject} ${level} LIMIT ${limit}`
+    // );
 
     db.query(
       sql,
@@ -58,9 +58,9 @@ projectRouter.get(
 projectRouter.get(
   "/builder",
   expressAsyncHandler((req, res) => {
-    console.log(req.query);
+    // console.log(req.query);
     const projectid = Number(req.query.projectid);
-    console.log(projectid);
+    // console.log(projectid);
     db.query("SELECT * FROM `Project` WHERE `ProjectID` = ?", [projectid], async (err, results) => {
       if (err) {
         console.log(err);

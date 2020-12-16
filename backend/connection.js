@@ -16,10 +16,10 @@ try {
 }
 
 export const scaleGrid = {
-  host: "SG-mhqteam1-3460-master.servers.mongodirector.com",
-  user: "team3",
-  password: "N!@#txtGvyD5vyD5vyD5N!@#",
-  database: "mhq3",
+  host: "SG-missionx-3623-master.servers.mongodirector.com",
+  user: "sgroot",
+  password: "5bvKqZwknrCS-ghu",
+  database: "missionx",
   port: 3306,
   ssl: { ca: certificate },
 };
