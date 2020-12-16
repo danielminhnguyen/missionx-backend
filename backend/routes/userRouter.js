@@ -16,20 +16,21 @@ userRouter.post(
     console.log("password", password);
     if (email && password) {
       db.query(
-        "Select * FROM `User` WHERE `Email` = ? AND `Role` = ?",
+        "Select * FROM `mhq3`.`User` WHERE `Email` = ? AND `Role` = ?",
         [email, role],
         async (err, results) => {
           if (err) {
             console.log(err);
           } else if (results.length === 1 && bcrypt.compareSync(password, results[0].Password)) {
-            
-            // const image = Buffer.from(results[0].ProfilePic, "binary").toString("base64");
-            res.send({
-              _id: results[0].UserID,
+            const encoding = "base64";
+            const uri = `data:${results[0].MimeType};${encoding},${results[0].ProfilePic}`;
+
+            res.status(200).send({
+              UserID: results[0].UserID,
               FirstName: results[0].FirstName,
               LastName: results[0].LastName,
               Role: results[0].Role,
-              ProfilePic: results[0].ProfilePic,
+              ProfilePic: uri,
               token: generateToken(results[0]),
             });
           } else {
@@ -54,7 +55,7 @@ userRouter.post("/register", async (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          res.send({
+          res.status(200).send({
             FirstName: firstname,
             LastName: lastname,
             Role: role,

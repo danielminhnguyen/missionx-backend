@@ -1,8 +1,10 @@
 // import fs from "fs";
 import express from "express";
 // import mysql from "mysql2";
-import userRouter from "./routes/userRouter.js";
 import dotenv from "dotenv";
+import userRouter from "./routes/userRouter.js";
+import teacherRouter from "./routes/teacherRouter.js";
+import projectRouter from "./routes/projectRouter.js";
 
 dotenv.config();
 
@@ -13,6 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", userRouter);
+app.use("/api/teachers", teacherRouter);
+app.use("/api/projects", projectRouter);
 
 app.get("/api/login", (req, res) => {
   res.send("login api");
@@ -20,10 +24,6 @@ app.get("/api/login", (req, res) => {
 
 app.get("/", (req, res) => {
   res.send("hellow");
-});
-
-app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
 });
 
 app.listen(5000, () => {
