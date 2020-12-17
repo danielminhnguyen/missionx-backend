@@ -2,6 +2,7 @@
 import express from "express";
 // import mysql from "mysql2";
 import dotenv from "dotenv";
+import cors from "cors";
 import userRouter from "./routes/userRouter.js";
 import teacherRouter from "./routes/teacherRouter.js";
 import projectRouter from "./routes/projectRouter.js";
@@ -13,6 +14,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use("/api/users", userRouter);
 app.use("/api/teachers", teacherRouter);
