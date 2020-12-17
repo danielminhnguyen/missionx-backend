@@ -12,13 +12,14 @@ userRouter.post(
     const { email, password, role } = req.body;
     if (email && password) {
       db.query(
-        "Select * FROM `missionx`.`User` WHERE `Email` = ? AND `Role` = ?",
+        // "Select * FROM `missionx`.`User` WHERE `Email` = ? AND `Role` = ?",
+        "SELECT a.*, b.`FirstName` `TeacherFirstName`,  b.`LastName` `TeacherLastName` FROM `missionx`.`User` a LEFT OUTER JOIN `missionx`.`User` b ON a.`TeacherID` = b.`UserID` WHERE a.`Email` = ? AND a.`Role` = ?;",
         [email, role],
         async (err, results) => {
           if (err) {
             console.log(err);
           } else if (results.length === 1 && bcrypt.compareSync(password, results[0].Password)) {
-            console.log(results[0]);
+            // console.log(results[0]);
             const encoding = "base64";
             const uri = `data:${results[0].MimeType};${encoding},${results[0].ProfilePic}`;
             res.status(200).send({
@@ -27,7 +28,14 @@ userRouter.post(
               LastName: results[0].LastName,
               Role: results[0].Role,
               ProfilePic: uri,
+              School: results[0].School,
+              DateOfBirth: results[0].DateOfBirth,
+              ContactNumber: results[0].ContactNumber,
+              Email: results[0].Email,
+              CoursePurchased: results[0].CoursePurchased,
               token: generateToken(results[0]),
+              TeacherFirstName: results[0].TeacherFirstName,
+              TeacherLastName: results[0].TeacherLastName,
             });
           } else {
             res.status(401).send({ message: "invalid email or password" });

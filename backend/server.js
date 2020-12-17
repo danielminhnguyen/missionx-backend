@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/userRouter.js";
 import teacherRouter from "./routes/teacherRouter.js";
 import projectRouter from "./routes/projectRouter.js";
+import studentRouter from "./routes/studentRouter.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", userRouter);
 app.use("/api/teachers", teacherRouter);
 app.use("/api/projects", projectRouter);
+app.use("/api/students", studentRouter);
 
 app.get("/api/login", (req, res) => {
   res.send("login api");
