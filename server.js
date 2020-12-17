@@ -5,10 +5,10 @@ import dotenv from "dotenv";
 import userRouter from "./routes/userRouter.js";
 import teacherRouter from "./routes/teacherRouter.js";
 import projectRouter from "./routes/projectRouter.js";
+import port from "./config/index.js";
+import { connect } from "./db/index.js";
 
 dotenv.config();
-
-// const db = mysql.createPool(local);
 
 const app = express();
 app.use(express.json());
@@ -18,14 +18,13 @@ app.use("/api/users", userRouter);
 app.use("/api/teachers", teacherRouter);
 app.use("/api/projects", projectRouter);
 
-app.get("/api/login", (req, res) => {
-  res.send("login api");
-});
+const startServer = async () => {
+  try {
+    await connect();
+    app.listen(port, () => console.log(`🚀 Server running on port ${port}!`));
+  } catch (e) {
+    console.error(e);
+  }
+};
 
-app.get("/", (req, res) => {
-  res.send("hellow");
-});
-
-app.listen(5000, () => {
-  console.log("running on port 5000");
-});
+startServer();
