@@ -60,6 +60,7 @@ userRouter.post("/register", async (req, res) => {
         if (err) {
           console.log(err);
         } else {
+          console.log("user succesful created");
           res.status(200).send("User Succesful Created");
         }
       }
