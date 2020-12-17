@@ -1,6 +1,4 @@
-// import fs from "fs";
 import express from "express";
-// import mysql from "mysql2";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRouter from "./routes/userRouter.js";
@@ -8,7 +6,7 @@ import teacherRouter from "./routes/teacherRouter.js";
 import projectRouter from "./routes/projectRouter.js";
 import port from "./config/index.js";
 import { connect } from "./db/index.js";
-import { allowCORS } from "./middlewares/index.js";
+import { allowCORS } from "./middlewares/index";
 
 dotenv.config();
 
@@ -17,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.all("/*", allowCORS); // A middleware to allow all CORS requests
-
+console.log("going route");
 app.use("/api/users", userRouter);
 app.use("/api/teachers", teacherRouter);
 app.use("/api/projects", projectRouter);

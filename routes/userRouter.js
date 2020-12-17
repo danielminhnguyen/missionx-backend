@@ -5,12 +5,13 @@ import db from "../connection.js";
 import { generateToken } from "../utils.js";
 
 const userRouter = express.Router();
-
+console.log("going before sending");
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
     const { email, password, role } = req.body;
     if (email && password) {
+      console.log("sending queries");
       db.query(
         // "Select * FROM `missionx`.`User` WHERE `Email` = ? AND `Role` = ?",
         "SELECT a.*, b.`FirstName` `TeacherFirstName`,  b.`LastName` `TeacherLastName` FROM `missionx`.`User` a LEFT OUTER JOIN `missionx`.`User` b ON a.`TeacherID` = b.`UserID` WHERE a.`Email` = ? AND a.`Role` = ?;",
@@ -22,6 +23,7 @@ userRouter.post(
             // console.log(results[0]);
             const encoding = "base64";
             const uri = `data:${results[0].MimeType};${encoding},${results[0].ProfilePic}`;
+            console.log("sending results");
             res.status(200).send({
               UserID: results[0].UserID,
               FirstName: results[0].FirstName,
